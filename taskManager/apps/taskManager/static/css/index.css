@@ -1,0 +1,193 @@
+:root {
+  --titleBoxWidth: 100%;
+  --beeLogoContainerWidth: clamp(20px, 24vw, 128px);
+}
+body {
+  background-color: #5f5f5f;
+  overflow-x: hidden;
+}
+
+.centered-title {
+  width: 100%;
+  text-align: center;
+}
+
+.boxTitle {
+  display: flex;
+  padding: 20px;
+  background-color: #fad975;
+  border-radius: 15px;
+  /* height: 150px; */
+  width: var(--titleBoxWidth);
+  margin-bottom: 10px;
+  /* width: 1000px; */
+  /* font-size: 70px; */
+  /* margin: auto; */
+}
+
+.task-box {
+  background-color: #fad975;
+  border-radius: 15px;
+  padding: 15px;
+  /* width: 1000px; */
+  width: var(--titleBoxWidth);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px, 0;
+}
+
+.information-box {
+  margin-top: 15px;
+  background-color: #333333;
+  border-radius: 15px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* width: 100%; */
+  /* width: 1000px; */
+  width: var(--titleBoxWidth);
+}
+
+.image-container {
+  background-color: #333333;
+  padding: 20px;
+  /* display: inline-block; */
+}
+
+.figure {
+  border: 3px solid black;
+  padding: 5px;
+}
+
+.bee-logo-container {
+  /* display: inline-block; */
+  position: absolute;
+  top: 0%;
+  right: 0;
+  /* transform: translateY(clamp(10px, calc(100vw-100vh), 100px)); */
+  /* transform: translateY(50%); */
+  transform: translateX(calc(var(--beeLogoContainerWidth) / 2));
+  /* background-color: red; */
+  width: var(--beeLogoContainerWidth);
+  /* transform: translateY(50%); */
+  /* position:; */
+  /* position: absolute; */
+  /* z-index: 5; */
+  /* background-color: red; */
+  /* left: calc(50vw ); */
+  /* left: var(--titleBoxWidth); */
+  /* float: right; */
+
+  /* top: 0; */
+  /* left: var(--beeLogoContainer); */
+
+  /* left: calc(100vw - clamp(300px, 50vw, 1000px)); */
+  /* left: calc(var(--leftOffsetOfTitleContainer)); */
+  /* top: 10px; */
+  /* left: 100px; */
+  /* left: 1100px; */
+  /* display: flex; */
+}
+
+.editButton {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #ef9395;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color: #f2b4a6;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.comment {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.createButton {
+  background-color: #ef9395;
+}
+
+/* For laptop devices */
+@media (min-width: 1024px) {
+  .boxTitle {
+    font-size: 70px; /* Adjust font size as needed */
+  }
+  .task-box {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .boxTitle {
+    font-size: 60px; /* Adjust font size as needed */
+  }
+  .task-box {
+    font-size: 40px;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .boxTitle {
+    font-size: 40px; /* Adjust font size as needed */
+  }
+  .task-box {
+    font-size: 35px;
+  }
+}

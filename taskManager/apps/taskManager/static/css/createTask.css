@@ -1,0 +1,60 @@
+/* The Modal (background) */
+#createTaskBackground {
+  display: none; /* Hidden by default */
+  place-items: center;
+  position: fixed; /* Stay in place */
+  z-index: 100000; /* Sit on top */
+  padding-top: 10px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.createTaskModalContent {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: clamp(300px, 50%, 800px);
+  /* display: inline-block; */
+}
+
+/* The Close Button */
+.CreateTaskClose {
+  color: #aaaaaa;
+  position: relative;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.CreateTaskClose:hover,
+.CreateTaskClose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#createTaskSplashContainer {
+  display: none;
+  padding: 0 40px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  /* background-color: #f1f1f1; */
+  position: absolute; /* or fixed */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#createTaskContainer {
+  visibility: visible;
+}

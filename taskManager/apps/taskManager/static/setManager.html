@@ -1,0 +1,113 @@
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      background-color: #2c2c2c;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      font-size: 2em;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .manager-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .manager-select {
+      width: 80%;
+      height: 200px;
+      background-color: #444444;
+      border: 2px solid #555555;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bbbbbb;
+    }
+
+    .btn {
+      background-color: #f1c40f;
+      color: #2c2c2c;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #d4ac0d;
+    }
+
+    .or-text {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="header">Select your manager</h1>
+  <div class="manager-container">
+    <div id="manager-select" class="manager-select">
+    </div>
+    <p>If signing up for first time doubleick set Manager button</p>
+    <p>If no available managers to select from only option is to set yourself as ceo</p>
+    <button id="setManagerButton" class="btn">Set Manager</button>
+    <p class="or-text">Or</p>
+    <button id="setCeoButton" class="btn">Set as CEO</button>
+  </div>
+  <script>
+    const getUsers = async () => {
+      const response = await (await fetch("/taskManager/api/getPotentialManagers")).json();
+      let select = `<select class="btn" id='setManager'>${response.map(
+        (row) =>
+          `<option value="${row.id}">${row.username}</option>`
+      )}</select>`;
+
+
+      document.getElementById("manager-select").innerHTML += select;
+      var managerSelect = document.getElementById("manager-select");
+      if (managerSelect.innerHTML.trim() === "") {
+        document.getElementById("setManagerButton").style.display = "none";
+        // Perform some action
+      } else {
+
+        document.getElementById("setManagerButton").style.display = "block";
+      }
+    };
+
+
+
+    window.onload = () => {
+      getUsers();
+      console.log(document.getElementById("setManagerButton"))
+      document.getElementById("setManagerButton").onclick = () => {
+        axios.put('/taskManager/setmanager', {manager: document.getElementById("setManager").value, isCeo: false})
+        window.location.href = '/taskManager/'
+      };
+
+      document.getElementById('setCeoButton').onclick = () => {
+        axios.put('/taskManager/setmanager', {manager: '', isCeo: true})
+        window.location.href = '/taskManager/'
+
+      }
+
+    };
+
+  </script>
+
+</body>
+
+</html>
